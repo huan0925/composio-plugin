@@ -9,10 +9,10 @@ async def get_from_port(conversation):
             method="POST",
             headers={'Content-Type': 'application/json'},
             body=json.dumps({"conversation": conversation,
-            'Davinci_API_KEY': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJEVkNBU1NJIiwic3ViIjoiRFNfQVJMTy5MSU5ATUVESUFURUsuQ09NIiwiYXVkIjpbIkRWQ0FTU0kiXSwiaWF0IjoxNzI0MjI4NzU0LCJqdGkiOiJjNjU2ZWI2ZC1kYjRjLTQ4NDAtYTU1Ny1mZjkxNmE4YzZjMDYifQ.XbCKaXNEYmJceyRM-jC1sK_NnwA77i0Z7BWJYI1xA9Q',
-            'Composio_API_KEY': 'nz8dbhjwoibd3iee6l45b',
-            'Entity_ID': 'Arlo',
-            'App': ['YOUTUBE','GMAIL']})
+            'Davinci_API_KEY': [DaVinci API Key],
+            'Composio_API_KEY': [Composio API Key],
+            'Entity_ID': [Entity ID],
+            'App': [APP_List]})
         )
 
         if resp.status == 200:
