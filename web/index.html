@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plugin Configuration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.21.0/full/pyodide.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Plugin Configuration</h1>
+        <form>
+            <div class="form-group">
+                <label for="davinciApiKey">Davinci API Key</label>
+                <input type="text" id="davinciApiKey" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="composioApiKey">Composio API Key</label>
+                <input type="text" id="composioApiKey" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="entityId">Entity ID</label>
+                <input type="text" id="entityId" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="pluginId">Plugin ID</label>
+                <input type="text" id="pluginId" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="schemaVersion">Schema Version</label>
+                <input type="text" id="schemaVersion" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="nameForHuman">Name for Human</label>
+                <input type="text" id="nameForHuman" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="nameForModel">Name for Model</label>
+                <input type="text" id="nameForModel" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="descriptionForHuman">Description for Human</label>
+                <textarea id="descriptionForHuman" rows="4" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="descriptionForModel">Description for Model</label>
+                <textarea id="descriptionForModel" rows="4" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Select APP</label>
+                <div class="app-container">
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GMAIL" class="form-check-input"><label class="form-check-label">GMAIL</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GOOGLECALENDAR" class="form-check-input"><label class="form-check-label">GOOGLE CALENDAR</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="YOUTUBE" class="form-check-input"><label class="form-check-label">YOUTUBE</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="JIRA" class="form-check-input"><label class="form-check-label">JIRA</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GITHUB" class="form-check-input"><label class="form-check-label">GITHUB</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="DISCORD" class="form-check-input"><label class="form-check-label">DISCORD</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="TWITTER" class="form-check-input"><label class="form-check-label">TWITTER</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="NOTION" class="form-check-input"><label class="form-check-label">NOTION</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="NASA" class="form-check-input"><label class="form-check-label">NASA</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GOOGLETASKS" class="form-check-input"><label class="form-check-label">GOOGLE TASKS</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GOOGLEDRIVE" class="form-check-input"><label class="form-check-label">GOOGLE DRIVE</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GOOGLESHEETS" class="form-check-input"><label class="form-check-label">GOOGLE SHEETS</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GOOGLEMEET" class="form-check-input"><label class="form-check-label">GOOGLE MEET</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GIT" class="form-check-input"><label class="form-check-label">GIT</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GOOGLEDOCS" class="form-check-input"><label class="form-check-label">GOOGLE DOCS</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="DROPBOX" class="form-check-input"><label class="form-check-label">DROPBOX</label></div>
+                    <!-- <div class="form-check form-check-inline"><input type="checkbox" name="app" value="App17" class="form-check-input"><label class="form-check-label">App17</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="App18" class="form-check-input"><label class="form-check-label">App18</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="App19" class="form-check-input"><label class="form-check-label">App19</label></div>
+                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="App20" class="form-check-input"><label class="form-check-label">App20</label></div> -->
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
