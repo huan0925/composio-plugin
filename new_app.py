@@ -7,7 +7,9 @@ from composio_openai import ComposioToolSet, App
 from composio import Action
 from composio.client.exceptions import NoItemsFound
  
-
+app = Flask(__name__)
+# Enable CORS for all domains on all routes
+CORS(app)
 
 def run_composio(Composio_API_KEY, Entity_ID, App_list):
 
@@ -27,9 +29,6 @@ def run_composio(Composio_API_KEY, Entity_ID, App_list):
     # tool = composio_toolset.get_tools(apps=[App.GMAIL])
     return tool[0]
         
-app = Flask(__name__)
-# Enable CORS for all domains on all routes
-CORS(app)
 
 def run_action(response, Composio_API_KEY, Entity_ID):
     composio_toolset = ComposioToolSet(api_key=Composio_API_KEY, entity_id=Entity_ID)
@@ -42,13 +41,8 @@ def run_action(response, Composio_API_KEY, Entity_ID):
 
     app_enum = getattr(Action, response['name'].upper(), None)
     print(app_enum)
-    # arg = {"recipient_email":"judyt510ac@gmail.com","subject":"羽球邀約","body":"<p>您好，</p><p>我想邀請您在9月12日 晚上5點一起打羽球。</p><p>署名：Peter9</p>","is_html":True}
 
     composio_toolset.execute_action(action = app_enum, params = res, entity_id= Entity_ID)
-    # action = {'function': response}
-    # print(action)
-    # # a = composio_toolset.execute_tool_call(tool_call = action)
-    # return a
  
 @app.route('/', methods=['POST'])
 def home():
@@ -81,14 +75,6 @@ def run_app():
     headers={
       "Content-Type":"application/json"
     }
-    # entity_id = data['username']
-    # confirm = integration(entity_id)
-    # if confirm == 'connected':
-    #     return data
-    # else:
-    #     print("please connect first")
-    #     return confirm
-    # print(data)
     Composio_API_KEY = data['Composio_API_KEY']
     Entity_ID = data['Entity_ID']
     response = data['response']['function_call']
