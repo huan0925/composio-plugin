@@ -36,9 +36,12 @@ def run_action(response, Composio_API_KEY, Entity_ID):
     # Execute the function calls.
     if response['arguments'].find('true') != -1:
         res_pre = response['arguments'].replace('true', 'True')
+        res = eval(res_pre)
     elif response['arguments'].find('false') != -1:
         res_pre = response['arguments'].replace('false', 'False')
-    res = eval(res_pre)
+        res = eval(res_pre)
+    else:
+        res = response['arguments']
 
     app_enum = getattr(Action, response['name'].upper(), None)
     print(app_enum)
