@@ -40,7 +40,7 @@ def run_action(response, Composio_API_KEY, Entity_ID):
         res_pre = response['arguments'].replace('false', 'False')
         res = eval(res_pre)
     else:
-        res = response['arguments']
+        res = eval(response['arguments'])
 
     app_enum = getattr(Action, response['name'].upper(), None)
     print(app_enum)
@@ -82,11 +82,11 @@ def run_app():
     Entity_ID = data['Entity_ID']
     response = data['response']['function_call']
     print(response)
-    abc = run_action(response, Composio_API_KEY, Entity_ID)
+    run_action(response, Composio_API_KEY, Entity_ID)
     # print(msg)
     # response = run_composio(Composio_API_KEY, Entity_ID, App_list)
     # print(response)
-    response_data = {"response": "abc"}
+    response_data = {"response": "Success"}
     
     return response_data   
 
