@@ -45,28 +45,60 @@
                 <textarea id="descriptionForModel" rows="4" class="form-control"></textarea>
             </div>
             <div class="form-group">
-                <label>Select APP</label>
-                <div class="app-container">
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GMAIL" class="form-check-input"><label class="form-check-label">GMAIL</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GOOGLECALENDAR" class="form-check-input"><label class="form-check-label">GOOGLE CALENDAR</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="YOUTUBE" class="form-check-input"><label class="form-check-label">YOUTUBE</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="JIRA" class="form-check-input"><label class="form-check-label">JIRA</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GITHUB" class="form-check-input"><label class="form-check-label">GITHUB</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="DISCORD" class="form-check-input"><label class="form-check-label">DISCORD</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="TWITTER" class="form-check-input"><label class="form-check-label">TWITTER</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="NOTION" class="form-check-input"><label class="form-check-label">NOTION</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="NASA" class="form-check-input"><label class="form-check-label">NASA</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GOOGLETASKS" class="form-check-input"><label class="form-check-label">GOOGLE TASKS</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GOOGLEDRIVE" class="form-check-input"><label class="form-check-label">GOOGLE DRIVE</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GOOGLESHEETS" class="form-check-input"><label class="form-check-label">GOOGLE SHEETS</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GOOGLEMEET" class="form-check-input"><label class="form-check-label">GOOGLE MEET</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GIT" class="form-check-input"><label class="form-check-label">GIT</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="GOOGLEDOCS" class="form-check-input"><label class="form-check-label">GOOGLE DOCS</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="DROPBOX" class="form-check-input"><label class="form-check-label">DROPBOX</label></div>
-                    <!-- <div class="form-check form-check-inline"><input type="checkbox" name="app" value="App17" class="form-check-input"><label class="form-check-label">App17</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="App18" class="form-check-input"><label class="form-check-label">App18</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="App19" class="form-check-input"><label class="form-check-label">App19</label></div>
-                    <div class="form-check form-check-inline"><input type="checkbox" name="app" value="App20" class="form-check-input"><label class="form-check-label">App20</label></div> -->
+                <label>Select Apps</label>
+                <div class="card">
+                    <div class="card-body app-container">
+                        <div class="row">
+                            <div class="col-md-3 mb-2">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="GMAIL" name="app" value="GMAIL" class="custom-control-input" required>
+                                    <label class="custom-control-label" for="GMAIL">GMAIL</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="GOOGLECALENDAR" name="app" value="GOOGLECALENDAR" class="custom-control-input" required>
+                                    <label class="custom-control-label" for="GOOGLECALENDAR">GOOGLE CALENDAR</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="YOUTUBE" name="app" value="YOUTUBE" class="custom-control-input" required>
+                                    <label class="custom-control-label" for="YOUTUBE">YOUTUBE</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="JIRA" name="app" value="JIRA" class="custom-control-input" required>
+                                    <label class="custom-control-label" for="JIRA">JIRA</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="NOTION" name="app" value="NOTION" class="custom-control-input" required>
+                                    <label class="custom-control-label" for="NOTION">NOTION</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="POSTHOG" name="app" value="POSTHOG" class="custom-control-input" required>
+                                    <label class="custom-control-label" for="POSTHOG">POSTHOG</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="PERPLEXITYAI" name="app" value="PERPLEXITYAI" class="custom-control-input" required>
+                                    <label class="custom-control-label" for="PERPLEXITYAI">PERPLEXITY AI</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="SQLTOOL" name="app" value="SQLTOOL" class="custom-control-input" required>
+                                    <label class="custom-control-label" for="SQLTOOL">SQLTOOL</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="d-flex justify-content-center">

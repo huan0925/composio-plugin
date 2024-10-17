@@ -1,0 +1,17 @@
+{
+  "id": "easily_invite123456677",
+  "schema_version": "v1.0",
+  "name_for_human": "easily_invite111112334",
+  "name_for_model": "easily_invite",
+  "description_for_human": "Check your schedule and help you invite your friend",
+  "description_for_model": "You are a good assistant which can help me send email and youtube video.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "python",
+    "python": {
+      "source": "\nimport json\nimport asyncio\nfrom pyodide.http import pyfetch\n\nasync def get_from_port(conversation):\n    try:\n        resp = await pyfetch(\n            'http://127.0.0.1:5001',\n            method=\"POST\",\n            headers={'Content-Type': 'application/json'},\n            body=json.dumps({\n                \"conversation\": conversation,\n                'Davinci_API_KEY': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJEVkNBU1NJIiwic3ViIjoiRFNfQVJMTy5MSU5ATUVESUFURUsuQ09NIiwiYXVkIjpbIkRWQ0FTU0kiXSwiaWF0IjoxNzI0MjI4NzU0LCJqdGkiOiJjNjU2ZWI2ZC1kYjRjLTQ4NDAtYTU1Ny1mZjkxNmE4YzZjMDYifQ.XbCKaXNEYmJceyRM-jC1sK_NnwA77i0Z7BWJYI1xA9Q',\n                'Composio_API_KEY': 'nz8dbhjwoibd3iee6l45b',\n                'Entity_ID': 'Arlo',\n                'App': ['GMAIL', 'GOOGLECALENDAR']\n            })\n        )\n\n        if resp.status == 200:\n            return await resp.json()\n        else:\n            return f\"Error{resp.status}\"\n\n    except Exception as e:\n        return f\"Request failed{e}\"\n\nasync def main():\n    conversation = \"CURRENT_CONVERSATION\"\n    result = await get_from_port(conversation)\n    print(\"Received from port:\", result)\n\nawait main()\n"
+    }
+  }
+}

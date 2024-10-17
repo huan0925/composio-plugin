@@ -1,13 +1,13 @@
-body {
-    padding: 50px;
-}
 .app-container {
-    border: 1px solid #ccc;
-    padding: 10px;
-    max-height: 200px;
+    max-height: 300px;
     overflow-y: auto;
 }
-.form-check-inline {
-    width: 20%;
-    margin-bottom: 10px;
+
+.app-container .custom-control-label {
+    width: 100%;
+    cursor: pointer;
+}
+
+.app-container .custom-control {
+    padding-left: 1.5rem;
 }

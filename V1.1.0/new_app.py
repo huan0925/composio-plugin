@@ -12,12 +12,11 @@ app = Flask(__name__)
 CORS(app)
 
 def run_composio(Composio_API_KEY, Entity_ID, App_list):
-
+    # Initialize ComposioToolSet
     composio_toolset = ComposioToolSet(api_key=Composio_API_KEY, entity_id=Entity_ID)
    
-    # 步驟 3：通過 Composio 獲取所有 GitHub 工具
+    # Check if the app is valid
     App_list_attr = []
-    
     for app in App_list:
         # print(app)
         app_enum = getattr(App, app.upper(), None)
@@ -27,12 +26,16 @@ def run_composio(Composio_API_KEY, Entity_ID, App_list):
             App_list_attr.append(app_enum)
     tool = composio_toolset.get_tools(apps=App_list_attr)
     # tool = composio_toolset.get_tools(apps=[App.GMAIL])
+
+    # return app all action to DaVinci
     return tool[0]
         
 
 def run_action(response, Composio_API_KEY, Entity_ID):
+    # Initialize ComposioToolSet
     composio_toolset = ComposioToolSet(api_key=Composio_API_KEY, entity_id=Entity_ID)
-    # Execute the function calls.
+    
+    # convert string to python object
     if response['arguments'].find('true') != -1:
         res_pre = response['arguments'].replace('true', 'True')
         res = eval(res_pre)
@@ -42,31 +45,22 @@ def run_action(response, Composio_API_KEY, Entity_ID):
     else:
         res = eval(response['arguments'])
 
+    # get app action
     app_enum = getattr(Action, response['name'].upper(), None)
     print(app_enum)
 
-    composio_toolset.execute_action(action = app_enum, params = res, entity_id= Entity_ID)
+    # execute app action
+    result = composio_toolset.execute_action(action = app_enum, params = res, entity_id= Entity_ID)
+    return result
  
+# get app action
 @app.route('/', methods=['POST'])
 def home():
     data = request.get_json()
-    headers={
-      "Content-Type":"application/json"
-    }
-    # entity_id = data['username']
-    # confirm = integration(entity_id)
-    # if confirm == 'connected':
-    #     return data
-    # else:
-    #     print("please connect first")
-    #     return confirm
-    # print(data)
     Composio_API_KEY = data['Composio_API_KEY']
     Entity_ID = data['Entity_ID']
     App_list = data['App']
-    # print(msg)
     response = run_composio(Composio_API_KEY, Entity_ID, App_list)
-    # print(response)
     response_data = {"response": response}
     
     return response_data
@@ -75,18 +69,12 @@ def home():
 @app.route('/run', methods=['POST'])
 def run_app():
     data = request.get_json()
-    headers={
-      "Content-Type":"application/json"
-    }
     Composio_API_KEY = data['Composio_API_KEY']
     Entity_ID = data['Entity_ID']
     response = data['response']['function_call']
-    print(response)
-    run_action(response, Composio_API_KEY, Entity_ID)
-    # print(msg)
-    # response = run_composio(Composio_API_KEY, Entity_ID, App_list)
-    # print(response)
-    response_data = {"response": "Success"}
+    # print(data)
+    res = run_action(response, Composio_API_KEY, Entity_ID)
+    response_data = {"response": res}
     
     return response_data   
 

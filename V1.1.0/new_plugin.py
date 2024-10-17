@@ -10,7 +10,7 @@ async def get_from_port():
             headers={'Content-Type': 'application/json'},
             body=json.dumps({'Composio_API_KEY': 'nz8dbhjwoibd3iee6l45b',
             'Entity_ID': 'Arlo',
-            'App': ['Gmail']})
+            'App': ['Gmail', 'Youtube']})
         )
 
         if resp.status == 200:
@@ -44,6 +44,7 @@ async def main():
     get_tools = await get_from_port()
     # print(type(get_tools))
 
+    # initialize conversation
     conversation = CURRENT_CONVERSATION + [
         {
             "role": "system",
@@ -53,11 +54,13 @@ async def main():
 
     # print(get_tools['response']['function'])
 
+    # get response from DaVinci
     response = await chat(
         conversation=conversation,
         functions=[get_tools['response']['function']],
     )
 
+    # run app action
     result = await run_action(response)
     print(result)
 
